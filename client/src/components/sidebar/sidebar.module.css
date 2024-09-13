@@ -1,0 +1,51 @@
+.sidebar_container {
+    padding: 15px;
+    height: 100vh;
+    width: 30%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border-right: 0.5px solid var(--border);
+    background: var(--grey);
+}
+
+.sidebar_header h3 {
+    padding: 10px;
+    color: var(--primary);
+}
+
+.chat_item {
+    display: flex;
+    padding: 20px 10px;
+    /* border-bottom: 1px solid var(--border); */
+    gap: 10px;
+}
+
+.chat_item:hover {
+    background: var(--grey-focus);
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+
+.profile_pic {
+    height: 40px;
+}
+
+.metadata {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.name_time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name_time p:nth-child(1) {
+    font-weight: 600;
+}
+
+.name_time p:nth-child(2),
+.lastest_message {
+    color: var(--dark-grey);
+}
