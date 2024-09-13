@@ -1,0 +1,17 @@
+.received_bubble {
+    background: var(--grey);
+    width: fit-content;
+    padding: 5px 5px;
+    font-weight: 600;
+    height: auto;
+    width: fit-content;
+
+}
+.send_bubble {
+    background: var(--primary);
+    color: var(--white);
+    width: fit-content;
+    padding: 5px 5px;
+    font-weight: 600;
+    height: auto;
+}
