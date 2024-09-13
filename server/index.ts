@@ -4,18 +4,23 @@ import http from "http";
 import process from "process";
 import { config } from "./src/config/config";
 import { CONFIG } from "./src/types";
+import mongoose from "mongoose";
+import connectDB from "./src/config/db";
 
 const port = normalizePort(config.PORT || 3000);
 app.set("port", port);
 
 const server = http.createServer(app);
-validateEnvVariables();
-server.listen(port, () =>
-  console.log(`Server process ${process.pid} started at port ${port}`)
-);
+
+server.listen(port, () => {
+  validateEnvVariables();
+  console.log(`Server process ${process.pid} started at port ${port}`);
+  connectDB();
+});
 
 server.on("error", onError);
 
+// event base error handling
 process.on("unhandledRejection", (err) => {
   console.error("Uncaught Exception Occured: ", err);
   server.close(() => {
@@ -37,11 +42,12 @@ process.on("unhandledRejection", (reason, promise) => {
 process.on("SIGINT", () => gracefulShutDown("SIGINT"));
 process.on("SIGTERM", () => gracefulShutDown("SIGTERM"));
 
-function normalizePort(serverPort: number | string): number | string {
-  if (typeof serverPort === "string") {
+// Functions definitions
+function normalizePort(serverPort: number | string): number | string | boolean {
+  if (typeof serverPort === "string" || typeof serverPort === "number") {
     return serverPort;
   }
-  return port;
+  return false;
 }
 
 // check server is started or not and server permissions
@@ -72,8 +78,10 @@ function gracefulShutDown(signal: string) {
 }
 
 function closeServer() {
+  console.log("Closing Server & database connection...");
+  mongoose.connection.close(true);
   server.close(() => {
-    console.log("Server Closed with exit code 1");
+    console.log("Server & Database Closed with exit code 1");
   });
 }
 
