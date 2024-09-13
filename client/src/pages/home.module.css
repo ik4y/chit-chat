@@ -1,0 +1,9 @@
+.home_root {
+    display: flex;
+    align-items: start;
+}
+.main {
+    width:70% ;
+    display: flex;
+    flex-direction: column;
+}
