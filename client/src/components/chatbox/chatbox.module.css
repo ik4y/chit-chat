@@ -1,11 +1,23 @@
-.messages_wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-}
-
 .chatbox_container {
     padding:2%;
     width: 100%;
     height: 90vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.messages_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.received_bubble {
+    max-width: 60%;
+    align-self: flex-start;
+}
+
+.send_bubble {
+    max-width: 60%;
+    word-wrap: break-word;
+    align-self: flex-end;
 }

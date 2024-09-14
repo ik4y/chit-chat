@@ -11,11 +11,12 @@ type bubble = {
 
 const Bubble = ({ item }: bubble) => {
   return (
-    <div className={style.bubble_container}>
-      <div className={item.from ? style.received_bubble : style.send_bubble}>
-        <p>{item.message}</p>
-        <p>{item.time}</p>
-      </div>
+    <div
+      className={`${style.bubble} ${
+        item.from ? style.received_bubble : style.send_bubble
+      }`}>
+      <p>{item.message}</p>
+      <p>{item.time}</p>
     </div>
   );
 };

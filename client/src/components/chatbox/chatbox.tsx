@@ -7,7 +7,10 @@ const Chatbox = () => {
     <div className={style.chatbox_container}>
       <div className={style.messages_wrapper}>
         {data.map((item, index) => (
-          <Bubble item={item} />
+          <div
+            className={item.from ? style.received_bubble : style.send_bubble}>
+            <Bubble item={item} />
+          </div>
         ))}
       </div>
     </div>
