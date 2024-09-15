@@ -1,6 +1,6 @@
 import style from "./bubble.module.css";
 
-type bubble = {
+type TBubble = {
   item: {
     message: string;
     from?: string; // optional for now
@@ -9,7 +9,7 @@ type bubble = {
   };
 };
 
-const Bubble = ({ item }: bubble) => {
+const Bubble = ({ item }: TBubble) => {
   return (
     <div
       className={`${style.bubble} ${

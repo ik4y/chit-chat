@@ -1,9 +1,9 @@
 import avator from "./avator.module.css";
-type Avator = {
+type TAvator = {
   name: string;
 };
 
-const Avator = ({ name }: Avator) => {
+const Avator = ({ name }: TAvator) => {
   return (
     <div className={avator.avatar}>
       <p>{name?.charAt(0)}</p>

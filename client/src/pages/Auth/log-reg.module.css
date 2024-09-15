@@ -1,0 +1,23 @@
+.container {
+    max-width: 400px;
+    margin: 20vh auto;
+    padding: 20px;
+    border: 1px solid var(--shadow);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.footer a,
+.footer a:active,
+.footer a:visited,
+.footer a:active {
+    color: var(--primary);
+    text-decoration: none;
+}

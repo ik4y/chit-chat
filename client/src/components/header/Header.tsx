@@ -1,12 +1,13 @@
 import Avator from "../avator/avator";
 import style from "./header.module.css";
-type HeaderSignature = {
+
+type THeader = {
   profile?: string;
   name?: string;
   status?: string;
 };
 
-const Header = ({ profile, name, status }: HeaderSignature) => {
+const Header = ({ profile, name, status }: THeader) => {
   return (
     <div className={style.header_container}>
       <div className={style.header_profile_icon}>
